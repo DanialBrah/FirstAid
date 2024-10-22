@@ -117,3 +117,22 @@ class _CriticalEmergencyPageState extends State<CriticalEmergencyPage> {
     );
   }
 }
+
+class EmergencyCircle extends StatelessWidget {
+  final IconData icon;
+
+  const EmergencyCircle({super.key, required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.grey,
+      ),
+      child: Icon(icon, color: Colors.black),
+    );
+  }
+}
