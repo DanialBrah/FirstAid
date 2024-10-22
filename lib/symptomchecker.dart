@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
-import 'criticalemergency.dart'; // Add this import at the top
 
-class SymptomCheckerPage extends StatelessWidget {
+class SymptomCheckerPage extends StatefulWidget {
   const SymptomCheckerPage({super.key});
+
+  @override
+  _SymptomCheckerPageState createState() => _SymptomCheckerPageState();
+}
+
+class _SymptomCheckerPageState extends State<SymptomCheckerPage> {
+  int _selectedIndex = 3; // Default to 'Symptom' tab being selected
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index; // Update the selected index
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60.0),
+        preferredSize: const Size.fromHeight(60.0), // Adjust the height of the app bar
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -38,8 +50,8 @@ class SymptomCheckerPage extends StatelessWidget {
               },
             ),
           ],
-          backgroundColor: Colors.transparent,
-          elevation: 0,
+          backgroundColor: Colors.transparent, // Make the AppBar transparent to see the gradient
+          elevation: 0, // Remove the AppBar shadow to get a clean gradient look
         ),
       ),
       body: Padding(
@@ -51,8 +63,8 @@ class SymptomCheckerPage extends StatelessWidget {
               'Headache',
               'A common symptom that can be caused by many factors such as stress, dehydration, or other illnesses.',
               'Common',
-              0.7,
-              'assets/images/symptom_image.png',
+              0.7, // A visual representation of rarity (0.0 - 1.0 scale)
+              'assets/images/symptom_image.png', // Add the actual image path
             ),
             const SizedBox(height: 16),
             _buildSymptomCard(
@@ -60,14 +72,15 @@ class SymptomCheckerPage extends StatelessWidget {
               'Fever',
               'A rise in body temperature, usually a sign of infection or illness.',
               'Rare',
-              0.4,
-              'assets/images/fever_image.png',
+              0.4, // Example rarity representation
+              'assets/images/fever_image.png', // Add the actual image path
             ),
           ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex, // Set the current selected index
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home, size: 26),
@@ -90,29 +103,13 @@ class SymptomCheckerPage extends StatelessWidget {
             label: 'Alert',
           ),
         ],
-        selectedItemColor: Colors.deepPurple,
+        selectedItemColor: Colors.deepPurple, // Color for the selected item
         unselectedItemColor: Colors.grey,
-        onTap: (int index) {
-          // Handle icon tap action
-          if (index == 0) {
-            // Navigate to Home (replace with your home page)
-          } else if (index == 1) {
-            // Navigate to Map (replace with your map page)
-          } else if (index == 2) {
-            // Navigate to Play (replace with your play page)
-          } else if (index == 3) {
-            // Stay on the current Symptom Checker page
-          } else if (index == 4) {
-            // Navigate to Critical Emergency page
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CriticalEmergencyPage()),
-            );
-          }
-        },
+        onTap: _onItemTapped, // Handle icon tap action
       ),
     );
   }
+
   Widget _buildSymptomCard(BuildContext context, String name, String description, String rarity, double rarityValue, String imagePath) {
     return Card(
       elevation: 4,
