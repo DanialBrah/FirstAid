@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'symptomchecker.dart'; // Import the symptom checker page
 import 'criticalemergency.dart'; // Import the critical emergency page
+import 'NearestHospitalsPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Login Page'),
+      home: const MyHomePage(title: 'login page',),
     );
   }
 }
@@ -37,15 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _obscurePassword = true; // To toggle password visibility
   int _selectedIndex = 0; // Default index for BottomNavigationBar
 
+
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      if (index == 3) { // If "Symptom" is tapped
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const SymptomCheckerPage()),
-        );
-      }
     });
   }
 
