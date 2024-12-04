@@ -1,0 +1,34 @@
+print("pilih unit metrik yang hendak ditukar:")
+print("1. KG --> Pound")
+print("2. celsius --> fehrenheit")
+print("3. sentimeter --> inch")
+print("4. tamat program")
+user_input = int(input("masukkan pilihan menu anda(1 - 4):"))
+
+if user_input == 1:
+	int_nombor1 = int(input("masukkan berat dalam unit kg:"))
+	nombor_1 = int_nombor1 * 2.205
+	print("penukaran:")
+	print(int_nombor1, "kilogram")
+	print(nombor_1, "pound")
+
+elif user_input == 2:
+	int_nombor2 = float(input("masukkan suhu dalam unit darjah celsius:"))
+	nombor_2 = int_nombor2 * 9 / 5 + 32
+	print("penukaran:")
+	print(int_nombor2, "celsius")
+	print(nombor_2, "fehrenheit")
+
+elif user_input == 3:
+	int_nombor3 = int(input("masukkan panjang dalam centimeter:"))
+	nombor_3 = int_nombor3 / 2.54
+	print("penukaran:")
+	print(int_nombor3, "centimeter")
+	print(nombor_3, "inch")
+
+elif user_input == 4:
+	print("Program tamat")
+	exit()
+
+else:
+	print("Pilihan tidak sah")
