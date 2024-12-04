@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'criticalemergency.dart';
 
 class SymptomCheckerPage extends StatefulWidget {
   const SymptomCheckerPage({super.key});

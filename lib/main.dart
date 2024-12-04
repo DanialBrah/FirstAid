@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'symptomchecker.dart'; // Import the symptom checker page
-import 'criticalemergency.dart'; // Import the critical emergency page
 import 'NearestHospitalsPage.dart';
+import 'symptomchecker.dart'; // Import the symptom checker page
+// Import the critical emergency page
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'login page',),
+      home: const NearestHospitalsPage(),
     );
   }
 }

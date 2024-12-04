@@ -6,15 +6,17 @@ import 'package:geolocator/geolocator.dart';
 import 'main.dart';
 
 class NearestHospitalsPage extends StatefulWidget {
+  const NearestHospitalsPage({super.key});
+
   @override
   _NearestHospitalsPageState createState() => _NearestHospitalsPageState();
 }
 
 class _NearestHospitalsPageState extends State<NearestHospitalsPage> {
   late GoogleMapController _mapController;
-  LatLng _initialPosition = LatLng(3.1390, 101.6869); // Default to Kuala Lumpur
-  List<Marker> _hospitalMarkers = [];
-  List<Map<String, String>> _hospitalList = [
+  LatLng _initialPosition = const LatLng(3.1390, 101.6869); // Default to Kuala Lumpur
+  final List<Marker> _hospitalMarkers = [];
+  final List<Map<String, String>> _hospitalList = [
     {
       'name': 'Hospital Kajang',
       'distance': '2 km',
@@ -126,7 +128,7 @@ class _NearestHospitalsPageState extends State<NearestHospitalsPage> {
                 itemBuilder: (context, index) {
                   var hospital = _hospitalList[index];
                   return ListTile(
-                    leading: Icon(Icons.local_hospital, color: Colors.red),
+                    leading: const Icon(Icons.local_hospital, color: Colors.red),
                     title: Text(hospital['name']!),
                     subtitle: Text('Distance: ${hospital['distance']}'),
                     trailing: ElevatedButton(

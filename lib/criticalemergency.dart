@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'criticalemergency.dart'; // Add this import at the top
+// Add this import at the top
 
 class CriticalEmergencyPage extends StatefulWidget {
   const CriticalEmergencyPage({super.key});
@@ -60,7 +60,7 @@ class _CriticalEmergencyPageState extends State<CriticalEmergencyPage> {
             duration: const Duration(milliseconds: 300),
             width: _isExpanded ? 200 : 120,
             height: _isExpanded ? 200 : 120,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.red,
             ),
@@ -128,7 +128,7 @@ class EmergencyCircle extends StatelessWidget {
     return Container(
       width: 60,
       height: 60,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.grey,
       ),
